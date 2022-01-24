@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% comment %} <form method="POST" action="update/{{ form.id }}"> {% endcomment %}
+{% comment %} above is commented.
+Below is new code with /update and employee.id {% endcomment %}
+
+<form method="POST" action="/update/{{ employee.id }}">
+
+    {% csrf_token %}
+
+    <table>
+
+        <tr>
+            <td><input name="eid" required value="{{ employee.eid }}">
+            </td>
+        </tr>
+
+        <tr>
+            <td><input name="ename" required value="{{ employee.ename }}">
+            </td>
+        </tr>
+
+        <tr>
+            <td><input name="eemail" required value="{{ employee.eemail }}">
+            </td>
+        </tr>
+
+        <tr>
+            <td><input name="econtact" required value="{{ employee.econtact}}">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+            <button type="submit">Update</button>
+            </td> 
+        </tr>
+
+
+    </table>
+
+
+</form>
+
+{% endblock %}
